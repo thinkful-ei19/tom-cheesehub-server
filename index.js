@@ -8,6 +8,8 @@ const { PORT, CLIENT_ORIGIN } = require('./config');
 const { dbConnect } = require('./db-mongoose');
 // const {dbConnect} = require('./db-knex');
 
+const seed = require('./seed');
+
 const app = express();
 
 app.use(
@@ -21,6 +23,11 @@ app.use(
     origin: CLIENT_ORIGIN
   })
 );
+
+app.get('/api/cheeses', function (req, res) {
+  res.json({seed});
+});
+
 
 function runServer(port = PORT) {
   const server = app
