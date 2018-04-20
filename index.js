@@ -24,8 +24,9 @@ app.use(
   })
 );
 
+
 app.get('/api/cheeses', function (req, res) {
-  res.json({seed});
+  res.json(seed);
 });
 
 
